@@ -21,4 +21,21 @@ public class Author {
     public void setLastName(String lastName) {
         this.lastName = lastName;
     }
+
+
+    @Override public String toString(){
+        return getFirstName()+" "+getLastName();
+    }
+
+    @Override
+    public boolean equals(Object other) {
+        if (this.getClass() != other.getClass()) {
+            return false;
+        }
+        Author author = (Author) other;
+        return (getFirstName()+getLastName()).equals(author.getFirstName()+author.getLastName());
+    }
+    @Override public int hashCode() {
+        return java.util.Objects.hash(firstName,lastName);
+    }
 }
